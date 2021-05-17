@@ -3,7 +3,8 @@ const db = new sqlite3.Database('huoneet.db');
 
 
 db.serialize( () => {
-    let sql = 'CREATE TABLE Huone (' +
+    let sql = 
+    'CREATE TABLE Huone (' +
    'huone_id integer PRIMARY KEY NOT NULL, ' +
    'nimi text NOT NULL, ' +
    'kuvaus text NOT NULL, ' +

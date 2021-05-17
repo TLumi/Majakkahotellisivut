@@ -4,13 +4,15 @@ import {createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles';
 import MenuMUI from './components/MenuMUI';
 import Etusivu from './components/Etusivu';
 import Yhteystiedot from './components/Yhteystiedot';
-//import Huoneet from './components/Huoneet';
 import Huone from './components/Huone';
 import Varauslomake from './components/Varauslomake';
-import Huonelomake from './components/Huonelomake';
 import HaeHuoneet from './components/HaeHuoneet';
 import HaeVaraukset from './components/HaeVaraukset';
 import HaeVaraus from './components/HaeVaraus';
+import Majakat from './components/Majakat';
+import Menu2MUI from './components/Menu2MUI';
+
+
 const theme = createMuiTheme({
     
       typography:{
@@ -67,16 +69,19 @@ const theme = createMuiTheme({
                 <Switch>
                 <Route exact path='/' render={(props)=> <Etusivu{...props} majakkaData={majakkaData}/>}/>
                   <Route path = '/huoneet' component={HaeHuoneet}/>
-                  <Route path='/yhteystiedot' render={(props)=> <Yhteystiedot{...props} majakkaData={majakkaData}/>}/>
                   <Route path='/lueLisaa/:huone_id/:nimi/:kuvaus/:varustus/' render ={(props)=><Huone{...props} kuvaData={kuvaData}/>}/>
-                  <Route path='/varaa/:huone_id/' component= {Varauslomake}/>
+                  <Route path='/yhteystiedot' render={(props)=> <Yhteystiedot{...props} majakkaData={majakkaData}/>}/>
+                  <Route path='/varaa/:huone_id/:nimi' component= {Varauslomake}/>
                   <Route path= '/varaustiedot' component={HaeVaraukset}/>
-                  <Route path='/muutaVaraus/:varaus_id'component={HaeVaraus}/>
-                  <Route path='/huone/add/'component={ Huonelomake } />
-                 
+                                 
               </Switch>
             </div>
-        </div>
+              <Menu2MUI/>
+                <Switch>
+                  <Route path='/muutaVaraus/:varaus_id'component={HaeVaraus}/>
+                  <Route path='/majakat'component={Majakat}/>
+                </Switch>
+            </div>
         
       </MuiThemeProvider>  
     </BrowserRouter>

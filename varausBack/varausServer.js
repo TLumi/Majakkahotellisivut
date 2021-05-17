@@ -114,6 +114,17 @@ app.get('/varaus/all', (req, res, next) => {
   });
 });
 
+app.get('/varaus/all/:huone_id', (req, res, next) => {
+	let huone_id = req.params.huone_id;
+    db.all("SELECT * FROM varaus where huone_id=?  ",[huone_id], (error, results) => {
+    if (error) throw error;
+    if (typeof(result) == 'undefined')  {
+        return res.status(200).send({});
+      }
+    return res.status(200).json(results);
+  });
+});
+
 app.get('/varaus/one/:varaus_id', (req, res, next) => {
     let varaus_id = req.params.varaus_id;
     db.get('SELECT * FROM varaus where varaus_id=?', [varaus_id], (error, result) => {

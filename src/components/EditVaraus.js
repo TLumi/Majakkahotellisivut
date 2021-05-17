@@ -11,6 +11,8 @@ import Grid from '@material-ui/core/Grid';
 //import Griditem from '@material-ui/core';
 import axios from 'axios';
 
+
+
 const url = 'http://localhost:8080'
 
 function EditVaraus(props) {
@@ -20,27 +22,23 @@ function EditVaraus(props) {
     const muutaStartDate =(startDate) => {
         setVaraus({
             ...varaus,
-            startDate: startDate //lomakkeella muuttuva name: pitää olla identtinen tilamuuttujan kanssa
+            startDate: startDate 
         });
     } ;
 
     const muutaEndDate =(endDate) => {
         setVaraus({
             ...varaus,
-            endDate: endDate //lomakkeella muuttuva name: pitää olla identtinen tilamuuttujan kanssa
+            endDate: endDate 
         });
     } ;
-    //const muutaEndDate =(endDate) => {
-    //    setValues(endDate);
-    //} ;
-    
+       
     const muuta =(e) => {
         setVaraus({
             ...varaus,
             [e.target.name]: e.target.value //lomakkeella muuttuva name: pitää olla identtinen tilamuuttujan kanssa
         });
-        //setStartDate(startDate);
-        //setEndDate(endDate);
+       
         setIlmoitus('');
     };
   
@@ -48,10 +46,25 @@ function EditVaraus(props) {
         const muutaVaraus=(e) => {
             e.preventDefault();
             
-            if (varaus.etunimi.length<3 || varaus.sukunimi.length<3 || varaus.email.length<5 || varaus.puhelin.length<5)
-             { setIlmoitus('Täytä kaikki kentät.')
-             
+            if (varaus.etunimi.length<3) 
+             { setIlmoitus('Etunimen täytyy olla vähintään 3 merkkiä pitkä.')
+                }
+            else if (varaus.sukunimi.length<3)
+            { setIlmoitus('Sukunimen täytyy olla vähintään 3 merkkiä pitkä.')   
+                }
+            else if (varaus.email.length<5)
+            { setIlmoitus('Sähköpostin täytyy olla vähintään 5 merkkiä pitkä.')   
+                    }    
+            else if (varaus.puhelin.length<5)
+            { setIlmoitus('Puhelinnumeron täytyy olla vähintään 5 merkkiä pitkä.')   
+                 } 
+            else if (varaus.startDate >=  varaus.endDate)          
+            { setIlmoitus('Lähtöpäivä ei voi olla ennen tulopäivää.')   
+             }  
+            else if (new Date () > varaus.endDate)          
+                { setIlmoitus('Lähtöpäivä ei voi olla menneisyydessä.')                       
             }else{     
+                
                 
                 const formData = {
                     'varaus_id':varaus.varaus_id,
@@ -68,9 +81,9 @@ function EditVaraus(props) {
                     .then(response =>{
                         if(response.status ===200){
                             setVaraus({huone_id:'', etunimi:'', sukunimi:'', email:'', puhelin:'', startDate:'', endDate:''});
-                            setIlmoitus('Varaus vaihdettu onnistuneesti! Saat varausvahvistuksen ja varauksen tiedot hetken kuluttua sähköpostiisi.');
+                            setIlmoitus('Varauksen tiedot päivitetty onnistuneesti! ');
                         }else{
-                            setIlmoitus('Varauksen lähettäminen epäonnistui.');
+                            setIlmoitus('Varauksen päivittäminen epäonnistui.');
                         }                    
                     })
             
@@ -114,8 +127,7 @@ function EditVaraus(props) {
                     value={varaus.endDate}
                     onChange={muutaEndDate}
                     format={'dd.MM.yyyy'}
-                //    minDate={varaus.startDate}
-                //    minDateMessage={'Lähtöpäivä ei voi olla ennen tulopäivää'}
+              
                 />
                 </Grid>
                 </MuiPickersUtilsProvider>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -28,6 +28,7 @@ const useStyles = makeStyles({
   },
 });
 const classes = useStyles();
+const ilmoitusRef = useRef()
 const[ilmoitus,setIlmoitus] =useState('');
 const[varaukset, setVaraukset]=useState(props.varaukset);
 const [open, setOpen] =useState(false);
@@ -60,7 +61,7 @@ const poista = async (varaus_id) => {
 let dialog =
 <Dialog onClick= {handleClose} open= {open}>
   <DialogContent>
-    <DialogContentText > {ilmoitus}
+  <DialogContentText ref={ilmoitusRef} > {ilmoitus}
     <IconButton onClick ={handleClose}>
       <CloseIcon/>
     </IconButton>

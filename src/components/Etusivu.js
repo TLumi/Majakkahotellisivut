@@ -4,8 +4,7 @@ import Paper from '@material-ui/core/Paper';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import { makeStyles } from '@material-ui/core/styles';
-//import Button from '@material-ui/core/Button';
-//import {Link} from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
     
@@ -48,7 +47,7 @@ function Etusivu(props){
                 ))}
             </GridList>
             </div>
-         {/*   <Button className={classes.button} component= {Link} to = {'/login'}>Kirjautuminen henkilökunnalle</Button> */}
+           
           
         </Paper> 
    );

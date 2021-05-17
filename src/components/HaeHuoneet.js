@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Huoneet from './Huoneet';
+import MDSpinner from 'react-md-spinner';
 
   function HaeHuoneet () {
    
@@ -24,7 +25,7 @@ import Huoneet from './Huoneet';
    }, [])
 
    if (virhe.length > 0) {
-     return ( <Typography>{ virhe }</Typography> );
+     return ( <MDSpinner/> );
    }
 
    if (huoneet.length > 0) {

@@ -21,7 +21,7 @@ db.serialize( () => {
   })
 
   sql = "INSERT INTO `varaus` (`varaus_id`, `huone_id`,`etunimi`,`sukunimi`,`email`,`puhelin`, `startDate`,`endDate` ) "+
-  " VALUES (1, 2, 'Tuula', 'Testi', 'testi@email.com', '000123456','05.05.2021', '07.05.2021')";
+  " VALUES (1, 2, 'Tuula', 'Testi', 'testi@email.com', '000123456','2021-05-05', '2021-05-07')";
     db.run(sql, (err) => {
     if (err) {
       return console.log(err.message);
@@ -30,7 +30,7 @@ db.serialize( () => {
   });
 
   sql = "INSERT INTO `varaus` (`varaus_id`, `huone_id`,`etunimi`,`sukunimi`,`email`,`puhelin`, `startDate`,`endDate` ) "+
-  " VALUES  (2, 2, 'Tiina', 'Testivaraus', 'tiina@testivaraus.com', '012345678', '07.05.2021', '10.05.2021')";
+  " VALUES  (2, 2, 'Tiina', 'Testivaraus', 'tiina@testivaraus.com', '012345678', '.2021-05-07', '2021-05-10')";
     db.run(sql, (err) => {
     if (err) {
       return console.log(err.message);
