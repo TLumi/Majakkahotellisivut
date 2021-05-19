@@ -9,7 +9,7 @@ import Varaustiedot from './Varaustiedot';
 
    const haeKaikkiVaraukset = async () => {
     try {
-      const response = await fetch('http://localhost:8080/varaus/all');
+      const response = await fetch('http://localhost:80/varaus/all');
       const json = await response.json();
       setVaraukset(json);
       setVirhe('');

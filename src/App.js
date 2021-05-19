@@ -20,6 +20,7 @@ const theme = createMuiTheme({
     },
 });
 
+
   const kuvaData=[
     {id:1,
       img:'https://cdn.pixabay.com/photo/2017/11/21/15/36/sanderling-2968476_960_720.jpg',
@@ -57,8 +58,8 @@ const theme = createMuiTheme({
     title:'G'},
   ]
 
+  function App(){
   
-  function App() {
     return (
       <BrowserRouter>
       <MuiThemeProvider theme={ theme }>
@@ -87,6 +88,5 @@ const theme = createMuiTheme({
     </BrowserRouter>
 
     );
-  }
-   
+  } 
   export default App;

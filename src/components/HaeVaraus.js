@@ -13,7 +13,7 @@ function HaeVaraus () {
    const haeVaraustiedot = async () => {
     try{
       console.log(varaus_id);
-      const response = await fetch('http://localhost:8080/varaus/one/'+varaus_id)
+      const response = await fetch('http://localhost:80/varaus/one/'+varaus_id)
         const json = await response.json();
         console.log(json);
         setVaraus(json);

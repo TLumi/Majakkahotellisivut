@@ -40,7 +40,7 @@ const handleClose= () => {
 
 const poista = async (varaus_id) => {
   try{
-    const response = await axios.get('http://localhost:8080/varaus/delete/' +varaus_id)
+    const response = await axios.get('http://localhost:80/varaus/delete/' +varaus_id)
 
     if (response.status === 200) {
       const newVaraukset = await varaukset.filter(varaus => varaus.varaus_id !== varaus_id)

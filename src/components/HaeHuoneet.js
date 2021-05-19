@@ -10,7 +10,7 @@ import MDSpinner from 'react-md-spinner';
 
    const haeKaikkiHuoneet = async () => {
     try {
-      const response = await fetch('http://localhost:8080/huone/all');
+      const response = await fetch('http://localhost:80/huone/all');
       const json = await response.json();
       setHuoneet(json);
       setVirhe('');

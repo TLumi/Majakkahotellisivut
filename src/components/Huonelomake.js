@@ -36,7 +36,7 @@ function Huonelomake() {
             formData.append('varustus', huone.varustus);
             formData.append('kuva', huone.kuva); 
             
-            axios.post('http://localhost:8080/huone/add', formData)
+            axios.post('http://localhost:80/huone/add', formData)
             .then(response => {
                  if (response.status === 200) {
                 setValues( {nimi: '',kuvaus: '', varustus: '', kuva: '', } );

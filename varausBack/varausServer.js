@@ -15,8 +15,8 @@ const db = new sqlite3.Database('varaukset.db');
 const db2 = new sqlite3.Database('huoneet.db');
 
 // back kuuntelee porttia 8080
-app.listen(8080, () => {
-    console.log('Node toimii localhost:8080');
+app.listen(80, () => {
+    console.log('Node toimii localhost:80');
 });
 
 //Tästä eteenpäin huoneen tietoja

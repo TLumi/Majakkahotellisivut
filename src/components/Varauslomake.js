@@ -15,7 +15,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import CloseIcon from '@material-ui/icons/Close';
 import { IconButton } from '@material-ui/core';
 
-const url ='http://localhost:8080';
+const url ='http://localhost:80';
 
 
 function Varauslomake() {
